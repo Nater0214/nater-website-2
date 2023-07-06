@@ -1,4 +1,5 @@
 Django
 django-hosts
+gunicorn==20.1.*
 python-dotenv
 whitenoise
