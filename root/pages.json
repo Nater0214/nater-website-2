@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Home",
+        "path": "/"
+    },
+    {
+        "name": "About me",
+        "path": "/about-me"
+    },
+    {
+        "name": "About this site",
+        "path": "/about-site"
+    },
+    {
+        "name": "Projects",
+        "path": "/projects"
+    },
+    {
+        "name": "Tools",
+        "path": "/tools",
+        "children": [
+            {
+                "name": "Popup Maker",
+                "path": "/tools/popup-maker"
+            }
+        ]
+    },
+    {
+        "name": "Games",
+        "path": "/games",
+        "children": [
+            {
+                "name": "Clicker",
+                "path": "/games/clicker"
+            }
+        ]
+    },
+    {
+        "name": "Shrek Fanpage",
+        "path": "/shrek-fanpage"
+    },
+    {
+        "name": "User page",
+        "path": "/user"
+    }
+]

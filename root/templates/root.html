@@ -1,0 +1,27 @@
+<!-- Written by Nater0214 -->
+
+<html>
+    <head>
+        {% include 'head.html' with name=name %}
+    </head>
+    <body>
+        {% include 'topbar.html' with name=name %}
+        {% include 'sidebar.html' with name=name pages=pages %}
+        <div id="content" class="centerText">
+            <div id="splashTextGroup">
+                <h1 style="font-size:48px">Yes, you are in the right place</p>
+                <h2 style="font-size:36px">I actually got a website</p>
+                <p style="font-size:12px">I don't know why I did this but I did.</p>
+            </div>
+            <div id="explainTextGroup" class="centerText">
+                <p>I will be updating this with random stuff don't worry.</p>
+                <p>Newest thingies:</p>
+                <div id="thingiesList" style="font-size: 16px">
+                    <p>MY WEBSITE IS ON MY SERVER NOW!!</p>
+                    <p>Added <a href="/shrek-fanpage">Shrek Fanpage</a>!</p>
+                    <p>Made sidebar more fancy</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
