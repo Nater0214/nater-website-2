@@ -1,0 +1,118 @@
+/* Written by Nater0214 */
+
+/* Body stuff */
+body {
+    height: 100%;
+
+    margin: 0px;
+
+    font-family: 'Comfortaa';
+    font-weight: lighter;
+    color: white;
+    background-color: #001000;
+}
+
+/* Button stuff */
+button {
+    color: white;
+    background-color: #102010;
+}
+
+button:active {
+    background-color: #001000;
+}
+
+/* a stuff */
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Centered stuff */
+.centerText {
+    text-align: center;
+}
+
+.centerElem {
+    display: block;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Top bar stuff */
+#topBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 50px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+
+    background-color: #102010;
+}
+
+#pageName {
+    font-size: 100%;
+}
+
+/* Sidebar Stuff */
+#sidebar {
+    position: absolute;
+    left: -250px;
+
+    z-index: 2;
+    
+    height: calc();
+
+    width: 200px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+
+    transition: transform 0.5s ease;
+
+    background-color: #203020;
+}
+
+#sidebarButton {
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+#pageLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pageLink {
+    margin: 0px;
+    font-size: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.pageLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.pageLinks {
+    margin-left: 15px;
+}
+
+/* Content stuff */
+#contentContainer {
+    height: 100%;
+}
+
+#content {
+    position: relative;
+    padding: 25px;
+    z-index: 1;
+}
