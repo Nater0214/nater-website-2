@@ -7,8 +7,7 @@
         <link rel="stylesheet" href="{% static "root/popup-maker/style.css" %}">
     </head>
     <body>
-        {% include "topbar.html" %}
-        {% include "sidebar.html" %}
+        {% include "bars.html" with name=name pages=pages %}
         <div id="content">
             <div class="centerText">
                 <h1>Popup Maker</h1>
