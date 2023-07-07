@@ -7,15 +7,28 @@
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Comfortaa">
 <link rel="stylesheet" href="{% static "css/global.css" %}">
 <link rel="icon" href="{% static "image/icon.png" %}">
-{% if no_sidebar %}{% else %}
 <script type="module">
+    {% if no_sidebar %}{% else %}
     import * as SidebarResize from '{% static "js/sidebarResize.js" %}';
+    {% endif %}
+    {% if imports %}
+    {% for module in imports %}
+    import * as {{ module.as }} from '{% static module.from %}';
+    {% endfor %}
+    {% endif %}
     
     window.onload = () => {
-        SidebarResize.resizeSidebar();
+        {% if no_sidebar %}{% else %}SidebarResize.resizeSidebar();{% endif %}
+        {% if onloads %}
+        {% for function in onloads %}
+        {{ function }}()
+        {% endfor %}
+        {% endif %}
+        
     }
     window.onresize = () => {
+        {% if no_sidebar %}{% else %}
         SidebarResize.resizeSidebar();
+        {% endif %}
     }
 </script>
-{% endif %}
