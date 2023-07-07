@@ -10,7 +10,7 @@
 <link rel="icon" href="{% static "image/icon.png" %}">
 {% if no_sidebar %}{% else %}
 <script type="module">
-    import * as SidebarResize from "{% static 'js/sidebarResize.js" %}';
+    import * as SidebarResize from '{% static "js/sidebarResize.js" %}';
     
     window.onload = () => {
         SidebarResize.resizeSidebar();
