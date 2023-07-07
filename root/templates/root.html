@@ -2,11 +2,11 @@
 
 <html>
     <head>
-        {% include 'head.html' with name=name %}
+        {% include "head.html" with name=name %}
     </head>
     <body>
-        {% include 'topbar.html' with name=name %}
-        {% include 'sidebar.html' with name=name pages=pages %}
+        {% include "topbar.html" with name=name %}
+        {% include "sidebar.html" with name=name pages=pages %}
         <div id="content" class="centerText">
             <div id="splashTextGroup">
                 <h1 style="font-size:48px">Yes, you are in the right place</p>
