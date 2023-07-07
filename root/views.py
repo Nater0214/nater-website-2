@@ -109,7 +109,7 @@ def popup_maker(request) -> HttpResponse:
             }
         ],
         "onloads": [
-            "Popup.setup()"
+            "Popup.setup"
         ]
     }
     
