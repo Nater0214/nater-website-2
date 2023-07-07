@@ -48,6 +48,26 @@ def about_me(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
+def about_site(request) -> HttpResponse:
+    """The about site page"""
+    
+    # Load the template
+    template = loader.get_template("about_site.html")
+    
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
+        pages = json.load(file)
+    
+    # Set context values
+    context_values = {
+        "name": "About Site",
+        "pages": pages
+    }
+    
+    # Return response
+    return HttpResponse(template.render(context_values, request))
+
+
 # Error views
 def error404(request, exception) -> HttpResponse:
     """The 404 error page"""
