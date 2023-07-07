@@ -68,6 +68,54 @@ def about_site(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
+def tools(request) -> HttpResponse:
+    """The tools index"""
+    
+    # Load the template
+    template = loader.get_template("tools.html")
+    
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
+        pages = json.load(file)
+    
+    # Set context values
+    context_values = {
+        "name": "Tools",
+        "pages": pages
+    }
+    
+    # Return response
+    return HttpResponse(template.render(context_values, request))
+
+
+def popup_maker(request) -> HttpResponse:
+    """The popup maker page"""
+    
+    # Load the template
+    template = loader.get_template("tools/popup_maker.html")
+    
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
+        pages = json.load(file)
+    
+    # Set context values
+    context_values = {
+        "name": "Popup Maker",
+        "pages": pages,
+        "imports": [
+            {
+                "from": "root/popup-maker/popup.js",
+                "as": "Popup"
+            }
+        ],
+        "onloads": [
+            "Popup.setup()"
+        ]
+    }
+    
+    return HttpResponse(template.render(context_values, request))
+
+
 # Error views
 def error404(request, exception) -> HttpResponse:
     """The 404 error page"""
