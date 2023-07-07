@@ -5,13 +5,23 @@ from django.template import loader
 
 # Create your views here.
 def index(request) -> HttpResponse:
+    """The main website page"""
+    
+    # Get the template
     template = loader.get_template("root.html")
-    with open("./root/pages.json", "r") as file:
+    
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
+    
+    # Load newest thingies
+    with open("./root/newest_thingies.json", 'r') as file:
+        newest_thingies = json.load(file)
     
     context_values = {
         "name": "Home",
-        "pages": pages
+        "pages": pages,
+        "newest_thingies": newest_thingies
     }
     return HttpResponse(template.render(context_values, request))
 
