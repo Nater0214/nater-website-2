@@ -1,5 +1,5 @@
 {% load static %}
-<title>Nater's Website: {{ name }}</title>
+<title>Nater0214's Website - {{ name }}</title>
 
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="cache-control" content="no-cache">
@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{% static 'css/global.css' %}">
 <link rel="stylesheet" href="{% static 'root/css/style.css' %}">
 <link rel="icon" href="{% static 'image/icon.png' %}">
+{% if no_sidebar %}{% else %}
 <script type="module">
     import * as SidebarResize from '{% static 'js/sidebarResize.js' %}';
     
@@ -18,3 +19,4 @@
         SidebarResize.resizeSidebar();
     }
 </script>
+{% endif %}

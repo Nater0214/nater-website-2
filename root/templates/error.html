@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- Written by Nater0214 -->
+
+<html>
+    <head>
+        {% include 'head.html' with name=number no_sidebar=1%}
+    </head>
+    <body>
+        <div id="content">
+            <div id="messageContainer">
+                <h1 class="centerText" style="font-size: 72px">{{ number }}</h1>
+                <h2 class="centerText" style="font-size: 36px">Thats an error</h2>
+                <h3 class="centerText" style="font-size: 24px">{{ message }}</h3>
+            </div>
+            <h2 class="centerText" style="font-size:30px">Go to the <a href="/">home page</a>.</h2>
+        </div>
+    </body>
+</html>
