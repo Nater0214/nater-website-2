@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- Written by Nater0214 -->
+
+<html>
+    <head>
+        {% include "head.html" with name=name pages=pages %}
+    </head>
+    <body>
+        {% include "topbar.html" with name=name %}
+        {% include "sidebar.html" with name=name pages=pages %}
+        <div id="content">
+            <h1>Some things about me:</h1>
+            <ul>
+                <li>
+                    <p>I am literally just some kid who was bored and bought a domain</p>
+                </li>
+                <li>
+                    <p>I like the font Comfortaa, as you can probably notice</p>
+                </li>
+                <li>
+                    <p style="font-family: 'Courier New';">I also like Courier New</p>
+                </li>
+                <li>
+                    <p>My favorite color is green, as you may be able to tell</p>
+                </li>
+                <li>
+                    <p>I love python so much</p>
+                    <p>Some of my projects are on the <a href="/pages/projects.html">projects page</a>.</p>
+                    <p>This website uses Django (PYTHON!!!!)</p>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
