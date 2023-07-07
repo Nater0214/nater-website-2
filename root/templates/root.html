@@ -17,9 +17,9 @@
                 <p>I will be updating this with random stuff don't worry.</p>
                 <p>Newest thingies:</p>
                 <div id="thingiesList" style="font-size: 16px">
-                    <p>MY WEBSITE IS ON MY SERVER NOW!!</p>
-                    <p>Added <a href="/shrek-fanpage">Shrek Fanpage</a>!</p>
-                    <p>Made sidebar more fancy</p>
+                    {% for thingy in newest_thingies %}
+                    <p>{{ thingy.content }} [{{ thingy.date }}]</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
