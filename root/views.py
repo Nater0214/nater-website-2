@@ -116,6 +116,26 @@ def popup_maker(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
+def shrek_fanpage(request) -> HttpResponse:
+    """The Shrek Fanpage"""
+    
+    # Load the template
+    template = loader.get_template("shrek_fanpage.html")
+    
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
+        pages = json.load(file)
+    
+    # Set context values
+    context_values = {
+        "name": "Shrek Fanpage",
+        "pages": pages
+    }
+    
+    # Return response
+    return HttpResponse(template.render(context_values, request))
+
+
 # Error views
 def error404(request, exception) -> HttpResponse:
     """The 404 error page"""
