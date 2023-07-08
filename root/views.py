@@ -167,3 +167,19 @@ def error500(request) -> HttpResponse:
     
     # Return response
     return HttpResponse(template.render(context_values, request), status=500)
+
+
+def error503(request) -> HttpResponse:
+    """The 503 error page"""
+    
+    # Load the template
+    template = loader.get_template("error.html")
+    
+    # Set context values
+    context_values = {
+        "number": "503",
+        "message": "This page is unavailable for some reason :/ (probably working on it)"
+    }
+    
+    # Return response
+    return HttpResponse(template.render(context_values, request), status=503)

@@ -3,3 +3,4 @@ django-cors-headers
 django-hosts
 gunicorn==20.1.*
 python-dotenv
+tzdata
