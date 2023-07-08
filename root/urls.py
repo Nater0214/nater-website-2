@@ -9,4 +9,7 @@ urlpatterns = [
     path("tools", views.tools, name="tools"),
     path("tools/popup-maker", views.popup_maker, name="popup_maker"),
     path("shrek-fanpage", views.shrek_fanpage, name="shrek_fanpage"),
+    path("games", views.error503, name="games"),
+    path("games/clicker", views.error503, name="clicker"),
+    path("user", views.error503, name="user"),
 ]

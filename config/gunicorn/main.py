@@ -15,4 +15,4 @@ accesslog = errorlog = "/var/log/gunicorn/main.log"
 # Redirect stdout/stderr to log file
 capture_output = True
 # Daemonize the Gunicorn process (detach & enter background)
-daemon = False
+daemon = True
