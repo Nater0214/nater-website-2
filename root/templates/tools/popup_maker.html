@@ -1,0 +1,27 @@
+{% load my_static %}
+<!-- Written by Nater0214 -->
+
+<html>
+    <head>
+        {% include "head.html" with imports=imports onloads=onloads%}
+        <link rel="stylesheet" href="{% static "root/popup-maker/style.css" %}">
+    </head>
+    <body>
+        {% include "bars.html" with name=name pages=pages %}
+        <div id="content">
+            <div class="centerText">
+                <h1>Popup Maker</h1>
+                <h3>Make a cool window with a url</h3>
+            </div>
+            <hr>
+            <p style="margin-bottom: 0px">Url to website:</p>
+            <div id="inputArea">
+                <input type="checkbox" id="httpsCheck" checked="true">
+                <p id="httpsText">https://</p>
+                <input type="text" id="urlInput" class="height80"></input>
+                <span style="width: 20px"></span>
+                <button id="createButton" class="height80">Create</button>
+            </div>
+        </div>
+    </body>
+</html>

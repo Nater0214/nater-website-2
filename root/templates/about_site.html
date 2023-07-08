@@ -1,0 +1,36 @@
+{% load my_static %}
+<!-- Written by Nater0214 -->
+
+<html>
+    <head>
+        {% include "head.html" with name=name %}
+    </head>
+    <body>
+        {% include "bars.html" with name=name pages=pages %}
+        <div id="content">
+            <h1>Some things about this site:</h1>
+            <ul>
+                <li>
+                    <p>I literally wrote this site. I didn't use a designer.</p>
+                    <img id="literallyImg" src="{% static "root/about-site/literally-wrote-site.png" %}" style="max-width: 100%;">
+                </li>
+                <li>
+                    <p>If you have any problems with the site, do ctrl+shift+r and/or clear your browser's cache.</p>
+                </li>
+                <li>
+                    <p>If you have any suggestions, go to the <a href="/suggestions">suggestions page</a>.</p>
+                </li>
+                <li>
+                    <p>I was just bored one day so I made this.</p>
+                </li>
+                <li>
+                    <p>I'm kinda just using this as an excuse to develop some web development skills.</p>
+                    <p>Its fun though so I'm not mad.</p>
+                </li>
+                <li>
+                    <p>This site was approved by my IT teacher.</p>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
