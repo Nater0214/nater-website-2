@@ -154,6 +154,9 @@ def error404(request, exception) -> HttpResponse:
 
 
 def error500(request) -> HttpResponse:
+    """The 500 error page"""
+    
+    # Load the template
     template = loader.get_template("error.html")
     
     # Set context values
