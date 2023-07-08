@@ -12,10 +12,6 @@
         "path": "/about-site"
     },
     {
-        "name": "Projects",
-        "path": "/projects"
-    },
-    {
         "name": "Tools",
         "path": "/tools",
         "children": [

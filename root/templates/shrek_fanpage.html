@@ -1,0 +1,51 @@
+{% load my_static %}
+<!-- Written by Nater0214 -->
+
+<html>
+    <head>
+        {% include "head.html" %}
+    </head>
+    <body>
+        {% include "bars.html" with name=name pages=pages %}
+        <div id="content">
+            <div class="centerText">
+        	    <h1>Shrek</h1>
+                <a href="//en.wikipedia.org/wiki/Shrek_(character)"><img src="//upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png"></a>
+        	    <h3>The best movie and character</h3>
+            </div>
+            <hr>
+            
+            <p>I like Shrek. It is the coolest movie. All four movies have an interesting story and are entertaining and funny. The movie has turned into a cultural phenomenon.</p>
+            <p>The character Shrek is an amazing character also. He is developed very well and he says himself, "Ogres are like onions ... layers, ogres have layers." Shrek has many layers that get well developed throughout the four movies.</p>
+            <p>Shrek was created by Dreamworks, a studio that has created many other great movies.</p>
+            <p>Shrek is also green, the best color.</p>
+            <h4>Characters:</h4>
+            <ul>
+                <li>Shrek</li>
+                <li>Donkey</li>
+                <li>Princess Fiona</li>
+                <li>Lord Farquad</li>
+            </ul>
+            <a href="//www.tvguide.com/movies/shrek/2030305129/">Watch options</a>
+            <hr>
+
+            <h2>Memes</h2>
+            <p>Shrek has created many amazing memes</p>
+            <img src="{% static "root/shrek-fanpage/meme.png" %}">
+            <p style="margin-top: 0px;">Source me</p>
+            <hr>
+
+            <h2>Assets</h2>
+            <div style="display: flex;">
+                <div>
+                    <p>global style</p>
+                    <iframe src="{% static "css/global.css" %}"></iframe>
+                </div>
+                <div>
+                    <p>local style</p>
+                    <iframe src="{% static "root/shrek-fanpage/style.css" %}"></iframe>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
