@@ -1,6 +1,6 @@
 {% for page in pages %}
 <a href="{{ page.path }}" class="pageLink">{{ page.name }}</a>
 {% if page.children %}
-<div class="pageLinks">{% include "pagelinks.html" with name=name pages=page.children%}</div>
+<div class="pageLinks">{% include "pagelinks.html" with pages=page.children%}</div>
 {% endif %}
 {% endfor %}

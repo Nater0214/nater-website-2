@@ -2,6 +2,7 @@
 .dockerignore
 .vscode
 db.sqlite3
+docker-compose.yml
 Dockerfile
 dockerrun.sh
 nginx-conf

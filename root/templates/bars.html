@@ -1,2 +1,2 @@
-{% include "topbar.html" with name=name %}
-{% include "sidebar.html" with pages=pages %}
+{% include "topbar.html" %}
+{% if no_sidebar %}{% else %}{% include "sidebar.html" %}{% endif %}

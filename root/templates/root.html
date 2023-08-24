@@ -3,11 +3,11 @@
 
 <html>
     <head>
-        {% include "head.html" with name=name %}
+        {% include "head.html" %}
         <link rel="stylesheet" href="{% static "root/css/style.css" %}">
     </head>
     <body>
-        {% include "bars.html" with name=name pages=pages %}
+        {% include "bars.html" %}
         <div id="content" class="centerText">
             <div id="splashTextGroup">
                 <h1 style="font-size:48px">Yes, you are in the right place</p>

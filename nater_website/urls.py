@@ -24,4 +24,5 @@ handler500 = "root.views.error500"
 # Urls
 urlpatterns = [
     path("", include("root.urls")),
+    path("admin", admin.site.urls),
 ]
