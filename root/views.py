@@ -136,6 +136,32 @@ def shrek_fanpage(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
+def computing_innovation(request) -> HttpResponse:
+    """The Computing Innovation page"""
+    
+    # Load the template
+    template = loader.get_template("computing_innovation.html")
+    
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
+        pages = json.load(file)
+    
+    # Set context values
+    context_values = {
+        "name": "Computing Innovation",
+        "pages": pages,
+        "onloads": [
+            "(() => {document.getElementById(\"myTrackpointImage\").style.maxHeight = document.getElementById(\"descriptionDiv\").clientHeight})"
+        ],
+        "onresizes": [
+            "(() => {document.getElementById(\"myTrackpointImage\").style.maxHeight = document.getElementById(\"descriptionDiv\").clientHeight})"
+        ]
+    }
+    
+    # Return response
+    return HttpResponse(template.render(context_values, request))
+
+
 # Error views
 def error404(request, exception) -> HttpResponse:
     """The 404 error page"""

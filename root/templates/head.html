@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{% static "css/global.css" %}">
 <link rel="icon" href="{% static "image/icon.png" %}">
 <script type="module">
+    {% autoescape off %}
     {% if no_sidebar %}{% else %}
     import * as SidebarResize from '{% static "js/sidebarResize.js" %}';
     {% endif %}
@@ -21,7 +22,7 @@
         {% if no_sidebar %}{% else %}SidebarResize.resizeSidebar();{% endif %}
         {% if onloads %}
         {% for function in onloads %}
-        {{ function }}()
+        {{ function }}();
         {% endfor %}
         {% endif %}
         
@@ -30,5 +31,11 @@
         {% if no_sidebar %}{% else %}
         SidebarResize.resizeSidebar();
         {% endif %}
+        {% if onresizes %}
+        {% for function in onresizes %}
+        {{ function }}();
+        {% endfor %}
+        {% endif %}
     }
+    {% endautoescape %}
 </script>

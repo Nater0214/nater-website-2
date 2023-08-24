@@ -3,11 +3,11 @@
 
 <html>
     <head>
-        {% include "head.html" with imports=imports onloads=onloads%}
+        {% include "head.html" with onloads=onloads%}
         <link rel="stylesheet" href="{% static "root/popup-maker/style.css" %}">
     </head>
     <body>
-        {% include "bars.html" with name=name pages=pages %}
+        {% include "bars.html" %}
         <div id="content">
             <div class="centerText">
                 <h1>Popup Maker</h1>

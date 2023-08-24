@@ -11,5 +11,6 @@ urlpatterns = [
     path("shrek-fanpage", views.shrek_fanpage, name="shrek_fanpage"),
     path("games", views.error503, name="games"),
     path("games/clicker", views.error503, name="clicker"),
+    path("projects/computing-innovation", views.computing_innovation, name="computing_innovation"),
     path("user", views.error503, name="user"),
 ]
