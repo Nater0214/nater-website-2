@@ -1,9 +1,12 @@
 import json
 
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse
 from django.template import loader
+from django.contrib import auth
 
-def index(request) -> HttpResponse:
+from . import forms
+
+def index(request: HttpRequest) -> HttpResponse:
     """The main website page"""
     
     # Load the template
@@ -28,7 +31,40 @@ def index(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
-def about_me(request) -> HttpResponse:
+def user(request: HttpRequest) -> HttpResponse:
+    """The user page"""
+    
+    # Check for post
+    if request.method == "POST":
+        form = forms.LoginForm(request.POST)
+        user = auth.authenticate(username=form.data["username"], password=form.data["password"])
+        if user is not None:
+            auth.login(request, user)
+        form_valid = form.is_valid()
+    else:
+        form = forms.LoginForm()
+        form_valid = None
+    
+    # Load the template
+    template = loader.get_template("user.html")
+    
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
+        pages = json.load(file)
+    
+    # Set context values
+    context_values = {
+        "name": "User Page",
+        "pages": pages,
+        "form": form,
+        "form_valid": form_valid
+    }
+    
+    # Return response
+    return HttpResponse(template.render(context_values, request))
+
+
+def about_me(request: HttpRequest) -> HttpResponse:
     """The about me page"""
     
     # Load the template
@@ -48,7 +84,7 @@ def about_me(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
-def about_site(request) -> HttpResponse:
+def about_site(request: HttpRequest) -> HttpResponse:
     """The about site page"""
     
     # Load the template
@@ -68,7 +104,7 @@ def about_site(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
-def tools(request) -> HttpResponse:
+def tools(request: HttpRequest) -> HttpResponse:
     """The tools index"""
     
     # Load the template
@@ -88,7 +124,7 @@ def tools(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
-def popup_maker(request) -> HttpResponse:
+def popup_maker(request: HttpRequest) -> HttpResponse:
     """The popup maker page"""
     
     # Load the template
@@ -116,7 +152,7 @@ def popup_maker(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
-def shrek_fanpage(request) -> HttpResponse:
+def shrek_fanpage(request: HttpRequest) -> HttpResponse:
     """The Shrek Fanpage"""
     
     # Load the template
@@ -136,7 +172,7 @@ def shrek_fanpage(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request))
 
 
-def computing_innovation(request) -> HttpResponse:
+def computing_innovation(request: HttpRequest) -> HttpResponse:
     """The Computing Innovation page"""
     
     # Load the template
@@ -163,7 +199,7 @@ def computing_innovation(request) -> HttpResponse:
 
 
 # Error views
-def error404(request, exception) -> HttpResponse:
+def error404(request: HttpRequest, exception) -> HttpResponse:
     """The 404 error page"""
     
     # Load the template
@@ -179,7 +215,7 @@ def error404(request, exception) -> HttpResponse:
     return HttpResponse(template.render(context_values, request), status=404)
 
 
-def error500(request) -> HttpResponse:
+def error500(request: HttpRequest) -> HttpResponse:
     """The 500 error page"""
     
     # Load the template
@@ -195,7 +231,7 @@ def error500(request) -> HttpResponse:
     return HttpResponse(template.render(context_values, request), status=500)
 
 
-def error503(request) -> HttpResponse:
+def error503(request: HttpRequest) -> HttpResponse:
     """The 503 error page"""
     
     # Load the template
