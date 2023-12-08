@@ -9,9 +9,6 @@
 <link rel="icon" href="{% static "image/icon.png" %}">
 <script type="module">
     {% autoescape off %}
-    {% if no_sidebar %}{% else %}
-    import * as SidebarResize from '{% static "js/sidebarResize.js" %}';
-    {% endif %}
     {% if imports %}
     {% for module in imports %}
     import * as {{ module.as }} from '{% static module.from %}';
@@ -19,23 +16,19 @@
     {% endif %}
     
     window.onload = () => {
-        {% if no_sidebar %}{% else %}SidebarResize.resizeSidebar();{% endif %}
         {% if onloads %}
         {% for function in onloads %}
         {{ function }}();
         {% endfor %}
         {% endif %}
         
-    }
+    };
     window.onresize = () => {
-        {% if no_sidebar %}{% else %}
-        SidebarResize.resizeSidebar();
-        {% endif %}
         {% if onresizes %}
         {% for function in onresizes %}
         {{ function }}();
         {% endfor %}
         {% endif %}
-    }
+    };
     {% endautoescape %}
 </script>

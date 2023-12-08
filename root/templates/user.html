@@ -1,0 +1,22 @@
+<!-- Written by Nater0214 -->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {% include "head.html" %}
+    </head>
+    <body>
+        {% include "bars.html" %}
+        <div id="content">
+            <h1 class="centerText">User page</h1>
+            <form action="/user" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Login">
+            </form>
+            {% if form_valid %}{% else %}
+            <p>The form is invalid</p>
+            {% endif %}
+        </div>
+    </body>
+</html>

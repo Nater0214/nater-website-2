@@ -12,5 +12,5 @@ urlpatterns = [
     path("games", views.error503, name="games"),
     path("games/clicker", views.error503, name="clicker"),
     path("projects/computing-innovation", views.computing_innovation, name="computing_innovation"),
-    path("user", views.error503, name="user"),
+    path("user", views.user, name="user"),
 ]
