@@ -34,9 +34,5 @@
     {
         "name": "Shrek Fanpage",
         "path": "/shrek-fanpage"
-    },
-    {
-        "name": "User page",
-        "path": "/user"
     }
 ]

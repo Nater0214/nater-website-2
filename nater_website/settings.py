@@ -32,6 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'nater0214.com', 'nater0214.test']
+CSRF_TRUSTED_ORIGINS = ['http://nater0214.test', 'https://nater0214.com']
 
 
 # Application definition

@@ -1,4 +1,6 @@
 <div id="sidebar">
+    <a href="/user">{% if user %}{{ user.username }}{% else %}Log In{% endif %}</a>
+    <hr>
     <div id="pageLinks">
         {% include "pagelinks.html" %}
     </div>
