@@ -1,8 +1,8 @@
 import json
 
+from django.contrib import auth
 from django.http import HttpRequest, HttpResponse
 from django.template import loader
-from django.contrib import auth
 
 from . import forms
 
@@ -16,6 +16,12 @@ def index(request: HttpRequest) -> HttpResponse:
     with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
     
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
     # Load newest thingies
     with open("./root/newest_thingies.json", 'r') as file:
         newest_thingies = json.load(file)
@@ -24,6 +30,7 @@ def index(request: HttpRequest) -> HttpResponse:
     context_values = {
         "name": "Home",
         "pages": pages,
+        "user": user,
         "newest_thingies": newest_thingies
     }
     
@@ -52,10 +59,17 @@ def user(request: HttpRequest) -> HttpResponse:
     with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
     
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
     # Set context values
     context_values = {
         "name": "User Page",
         "pages": pages,
+        "user": user,
         "form": form,
         "form_valid": form_valid
     }
@@ -74,10 +88,17 @@ def about_me(request: HttpRequest) -> HttpResponse:
     with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
     
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
     # Set context values
     context_values = {
         "name": "About Me",
-        "pages": pages
+        "pages": pages,
+        "user": user
     }
     
     # Return response
@@ -94,10 +115,17 @@ def about_site(request: HttpRequest) -> HttpResponse:
     with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
     
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
     # Set context values
     context_values = {
         "name": "About Site",
-        "pages": pages
+        "pages": pages,
+        "user": user,
     }
     
     # Return response
@@ -114,10 +142,17 @@ def tools(request: HttpRequest) -> HttpResponse:
     with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
     
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
     # Set context values
     context_values = {
         "name": "Tools",
-        "pages": pages
+        "pages": pages,
+        "user": user,
     }
     
     # Return response
@@ -134,10 +169,17 @@ def popup_maker(request: HttpRequest) -> HttpResponse:
     with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
     
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
     # Set context values
     context_values = {
         "name": "Popup Maker",
         "pages": pages,
+        "user": user,
         "imports": [
             {
                 "from": "root/popup-maker/popup.js",
@@ -162,10 +204,17 @@ def shrek_fanpage(request: HttpRequest) -> HttpResponse:
     with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
     
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
     # Set context values
     context_values = {
         "name": "Shrek Fanpage",
-        "pages": pages
+        "pages": pages,
+        "user": user,
     }
     
     # Return response
@@ -182,10 +231,17 @@ def computing_innovation(request: HttpRequest) -> HttpResponse:
     with open("./root/pages.json", 'r') as file:
         pages = json.load(file)
     
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
     # Set context values
     context_values = {
         "name": "Computing Innovation",
         "pages": pages,
+        "user": user,
         "onloads": [
             "(() => {document.getElementById(\"myTrackpointImage\").style.maxHeight = document.getElementById(\"descriptionDiv\").clientHeight})"
         ],
