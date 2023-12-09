@@ -1,12 +1,12 @@
 import json
 
 from django.contrib import auth
-from django.http import HttpRequest, HttpResponse
+from django import http
 from django.template import loader
 
 from . import forms
 
-def index(request: HttpRequest) -> HttpResponse:
+def index(request: http.HttpRequest) -> http.HttpResponse:
     """The main website page"""
     
     # Load the template
@@ -35,19 +35,32 @@ def index(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request))
+    return http.HttpResponse(template.render(context_values, request))
 
 
-def user(request: HttpRequest) -> HttpResponse:
+def user(request: http.HttpRequest) -> http.HttpResponse:
     """The user page"""
     
     # Check for post
     if request.method == "POST":
-        form = forms.LoginForm(request.POST)
-        user = auth.authenticate(username=form.data["username"], password=form.data["password"])
-        if user is not None:
-            auth.login(request, user)
-        form_valid = form.is_valid()
+        try:
+            action = request.POST["action"]
+        except KeyError:
+            return error400(request)
+    
+        match action:
+            case "login":
+                form = forms.LoginForm(request.POST)
+                user = auth.authenticate(username=form.data["username"], password=form.data["password"])
+                if user is not None:
+                    auth.login(request, user)
+                form_valid = form.is_valid()
+            case "logout":
+                auth.logout(request)
+                form = forms.LoginForm()
+                form_valid = None
+            case _:
+                return error400(request)
     else:
         form = forms.LoginForm()
         form_valid = None
@@ -75,10 +88,10 @@ def user(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request))
+    return http.HttpResponse(template.render(context_values, request))
 
 
-def about_me(request: HttpRequest) -> HttpResponse:
+def about_me(request: http.HttpRequest) -> http.HttpResponse:
     """The about me page"""
     
     # Load the template
@@ -102,10 +115,10 @@ def about_me(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request))
+    return http.HttpResponse(template.render(context_values, request))
 
 
-def about_site(request: HttpRequest) -> HttpResponse:
+def about_site(request: http.HttpRequest) -> http.HttpResponse:
     """The about site page"""
     
     # Load the template
@@ -129,10 +142,10 @@ def about_site(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request))
+    return http.HttpResponse(template.render(context_values, request))
 
 
-def tools(request: HttpRequest) -> HttpResponse:
+def tools(request: http.HttpRequest) -> http.HttpResponse:
     """The tools index"""
     
     # Load the template
@@ -156,10 +169,10 @@ def tools(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request))
+    return http.HttpResponse(template.render(context_values, request))
 
 
-def popup_maker(request: HttpRequest) -> HttpResponse:
+def popup_maker(request: http.HttpRequest) -> http.HttpResponse:
     """The popup maker page"""
     
     # Load the template
@@ -191,10 +204,10 @@ def popup_maker(request: HttpRequest) -> HttpResponse:
         ]
     }
     
-    return HttpResponse(template.render(context_values, request))
+    return http.HttpResponse(template.render(context_values, request))
 
 
-def shrek_fanpage(request: HttpRequest) -> HttpResponse:
+def shrek_fanpage(request: http.HttpRequest) -> http.HttpResponse:
     """The Shrek Fanpage"""
     
     # Load the template
@@ -218,10 +231,10 @@ def shrek_fanpage(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request))
+    return http.HttpResponse(template.render(context_values, request))
 
 
-def computing_innovation(request: HttpRequest) -> HttpResponse:
+def computing_innovation(request: http.HttpRequest) -> http.HttpResponse:
     """The Computing Innovation page"""
     
     # Load the template
@@ -251,11 +264,27 @@ def computing_innovation(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request))
+    return http.HttpResponse(template.render(context_values, request))
 
 
 # Error views
-def error404(request: HttpRequest, exception) -> HttpResponse:
+def error400(request: http.HttpRequest) -> http.HttpResponse:
+    """The 400 error page"""
+    
+    # Load the template
+    template = loader.get_template("error.html")
+    
+    # Set context values
+    context_values = {
+        "number": "400",
+        "message": "That's not a valid request >:("
+    }
+    
+    # Return response
+    return http.HttpResponseBadRequest(template.render(context_values, request))
+
+
+def error404(request: http.HttpRequest, exception) -> http.HttpResponse:
     """The 404 error page"""
     
     # Load the template
@@ -268,10 +297,10 @@ def error404(request: HttpRequest, exception) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request), status=404)
+    return http.HttpResponseNotFound(template.render(context_values, request))
 
 
-def error500(request: HttpRequest) -> HttpResponse:
+def error500(request: http.HttpRequest) -> http.HttpResponse:
     """The 500 error page"""
     
     # Load the template
@@ -284,10 +313,10 @@ def error500(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request), status=500)
+    return http.HttpResponseServerError(template.render(context_values, request))
 
 
-def error503(request: HttpRequest) -> HttpResponse:
+def error503(request: http.HttpRequest) -> http.HttpResponse:
     """The 503 error page"""
     
     # Load the template
@@ -300,4 +329,4 @@ def error503(request: HttpRequest) -> HttpResponse:
     }
     
     # Return response
-    return HttpResponse(template.render(context_values, request), status=503)
+    return http.HttpResponse(template.render(context_values, request), status=503)
