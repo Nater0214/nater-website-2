@@ -1,7 +1,8 @@
 import json
 
-from django.contrib import auth
 from django import http
+from django.contrib import auth
+from django.contrib.auth.models import User
 from django.template import loader
 
 from . import forms
@@ -43,24 +44,33 @@ def user(request: http.HttpRequest) -> http.HttpResponse:
     
     # Check for post
     if request.method == "POST":
+        # Try to get action and return error if none
         try:
             action = request.POST["action"]
         except KeyError:
             return error400(request)
-    
+        
+        # Match the action
         match action:
+            # Login
             case "login":
                 form = forms.LoginForm(request.POST)
                 user = auth.authenticate(username=form.data["username"], password=form.data["password"])
-                if user is not None:
-                    auth.login(request, user)
+                if user is None:
+                    user = User.objects.create_user(username=form.data["username"], password=form.data["password"])
+                auth.login(request, user)
                 form_valid = form.is_valid()
+            
+            # Logout
             case "logout":
                 auth.logout(request)
                 form = forms.LoginForm()
                 form_valid = None
+            
+            # Some other invalid action
             case _:
                 return error400(request)
+    
     else:
         form = forms.LoginForm()
         form_valid = None
