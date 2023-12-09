@@ -9,13 +9,22 @@
         {% include "bars.html" %}
         <div id="content">
             <h1 class="centerText">User page</h1>
+            {% if user %}
             <form action="/user" method="post">
                 {% csrf_token %}
+                <input type="hidden" name="action" value="logout">
+                <input type="submit" value="Logout">
+            </form>
+            {% else %}
+            <form action="/user" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="login">
                 {{ form }}
                 <input type="submit" value="Login">
             </form>
             {% if form_valid %}{% else %}
             <p>The form is invalid</p>
+            {% endif %}
             {% endif %}
         </div>
     </body>
