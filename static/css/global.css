@@ -8,13 +8,13 @@ body {
 
     font-family: 'Comfortaa';
     font-weight: lighter;
-    color: white;
+    color: #EFEFEF;
     background-color: #001000;
 }
 
 /* Button stuff */
 button {
-    color: white;
+    color: #EFEFEF;
     background-color: #102010;
 }
 
@@ -24,7 +24,7 @@ button:active {
 
 /* a stuff */
 a {
-    color: white;
+    color: #EFEFEF;
     text-decoration: underline;
 }
 
@@ -93,7 +93,7 @@ a {
 .pageLink {
     margin: 0px;
     font-size: 100%;
-    color: white;
+    color: #EFEFEF;
     text-decoration: none;
 }
 
