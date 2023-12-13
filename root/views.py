@@ -277,6 +277,33 @@ def computing_innovation(request: http.HttpRequest) -> http.HttpResponse:
     return http.HttpResponse(template.render(context_values, request))
 
 
+def congo_act_now(request: http.HttpRequest) -> http.HttpResponse:
+    """The Congo Act Now page"""
+    
+    # Load the template
+    template = loader.get_template("congo_act_now.html")
+    
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
+        pages = json.load(file)
+    
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+    
+    # Set context values
+    context_values = {
+        "name": "Congo Act Now",
+        "pages": pages,
+        "user": user,
+    }
+    
+    # Return response
+    return http.HttpResponse(template.render(context_values, request))
+
+
 # Error views
 def error400(request: http.HttpRequest) -> http.HttpResponse:
     """The 400 error page"""
