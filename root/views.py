@@ -248,7 +248,7 @@ def computing_innovation(request: http.HttpRequest) -> http.HttpResponse:
     """The Computing Innovation page"""
     
     # Load the template
-    template = loader.get_template("computing_innovation.html")
+    template = loader.get_template("school_stuff/computing_innovation.html")
     
     # Load pages
     with open("./root/pages.json", 'r') as file:
@@ -281,7 +281,7 @@ def congo_act_now(request: http.HttpRequest) -> http.HttpResponse:
     """The Congo Act Now page"""
     
     # Load the template
-    template = loader.get_template("congo_act_now.html")
+    template = loader.get_template("school_stuff/congo_act_now.html")
     
     # Load pages
     with open("./root/pages.json", 'r') as file:
@@ -300,6 +300,33 @@ def congo_act_now(request: http.HttpRequest) -> http.HttpResponse:
         "user": user,
     }
     
+    # Return response
+    return http.HttpResponse(template.render(context_values, request))
+
+
+def nc_colonial_marketing(request: http.HttpRequest) -> http.HttpResponse:
+    """The NC Colonial Marketing page"""
+
+    # Load the template
+    template = loader.get_template("school_stuff/nc_colonial_marketing.html")
+
+    # Load pages
+    with open("./root/pages.json", 'r') as file:
+        pages = json.load(file)
+
+    # Get user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+
+    # Set context values
+    context_values = {
+        "name": "NC Colonial Marketing",
+        "pages": pages,
+        "user": user,
+    }
+
     # Return response
     return http.HttpResponse(template.render(context_values, request))
 

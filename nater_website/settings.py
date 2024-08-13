@@ -76,6 +76,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'nater_website.wsgi.application'
+WSGI_LOG = "/var/log/wsgi.log"
 
 
 # Database
