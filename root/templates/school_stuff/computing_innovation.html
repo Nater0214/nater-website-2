@@ -1,0 +1,60 @@
+{% load static %}
+<!-- Written by Nater0214 -->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {% include "head.html" with no_sidebar=1 %}
+        <link rel="stylesheet" href="{% static "root/computing-innovation/style.css" %}">
+    </head>
+    <body>
+        {% include "bars.html" with no_sidebar=1 %}
+        <div id="content">
+            <h1 class="centerText">The TrackPoint</h1>
+            <hr>
+            <div id="descriptionDiv" class="alignedLeft" style="display: flex; flex-direction: row; justify-content: space-between;">
+                <div>
+                    <h2>Description</h2>
+                    <p>The TrackPoint, also referred to as the 'nub' or 'nipple' is a small 'nub' usually sat between the 'g' 'h' and 'b' keys on a laptop's keyboard, if equipped. It moves the cursor around the screen.</p>
+                </div>
+                <img id="myTrackpointImage" src="{% static "root/computing-innovation/myTrackpoint.jpg" %}" style="max-height: 0px">
+            </div>
+            <div class="alignedRight">
+                <h2>Purpose</h2>
+                <p>The purpose of the TrackPoint is to move the cursor around the screen, requiring less finger movement from the keyboard.</p>
+            </div>
+            <div class="alignedLeft">
+                <h2>Beneficial Effects</h2>
+                <p>The TrackPoint allows for more productivity by reducing the amount of time required to switch to moving the cursor after typing.</p>
+                <p>The TrackPoint removes the problem of wrists messing with the trackpad, if used exclusively.</p>
+            </div>
+            <div class="alignedRight">
+                <h2>Harmful Effect</h2>
+                <p>A user of the TrackPoint may become acquainted to their settings on their own computer, making it harder to switch to a TrackPoint on a different computer.</p>
+                <p>A user who is unable to perform precise finger movements would be unable to use this device.</p>
+            </div>
+            <div class="alignedLeft">
+                <h2>Impact</h2>
+                <p>The TrackPoint has made an impact on computer users by increasing productivity in situations that require swtiching from typing to moving the mouse cursor. This increased productivity makes a mark on the economy, even though it may be small.</p>
+            </div>
+            <div class="alignedRight">
+                <h2>Data</h2>
+                <h4>Collection</h4>
+                <p>The TrackPoint collects data about the pressure being applied to it in order to move the cursor around the screen.</p>
+                <h4>Transformation</h4>
+                <p>The TrackPoint works by using a driver to transform the pressure of the user's fingertip into a vector, which can then be used to move the cursor on the screen in the correct direction with the correct speed.</p>
+                <h4>Concerns</h4>
+                <p>One concern is that a keylogger can log mouse movements on a machine, possibly exposing sensitive information about the user.</p>
+            </div>
+            <div class="alignedLeft">
+                <h2>Personally Identifiable Information</h2>
+                <p>On it's own, the TrackPoint does not collect any personally identifiable information, but combined with other data, information can be personally identifiable. (Bard, 2023)</p>
+            </div>
+            <div>
+                <h2>Citations</h2>
+                <p>Gartenberg, C. (2020, June 30). The ThinkPad TrackPoint tried to build a better mouse. The Verge. <a>https://www.theverge.com/circuitbreaker/2020/6/30/21292182/thinkpad-TrackPoint-mouse-nub-button-trackpad-challenges-design-user-input</a></p>
+                <p>Hanna, K. T. (2023). TrackPoint (pointing stick). WhatIs.com. <a>https://www.techtarget.com/whatis/definition/TrackPoint-pointing-stick</a></p>
+            </div>
+        </div>
+    </body>
+</html>

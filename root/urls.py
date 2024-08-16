@@ -12,7 +12,6 @@ urlpatterns = [
     path("shrek-fanpage", views.shrek_fanpage, name="shrek_fanpage"),
     path("games", views.error503, name="games"),
     path("games/clicker", views.error503, name="clicker"),
-    # path("school-stuff/computing-innovation", views.computing_innovation, name="computing_innovation"),
-    # path("school-stuff/congo-act-now", views.congo_act_now, name="congo_act_now"),
-    # path("school-stuff/nc-colonial-marketing", views.nc_colonial_marketing, name="nc_colonial_marketing"),
+    path("school-stuff/computing-innovation", views.computing_innovation, name="computing_innovation"),
+    path("school-stuff/congo-act-now", views.congo_act_now, name="congo_act_now"),
 ]
