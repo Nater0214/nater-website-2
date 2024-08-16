@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['localhost', 'nater0214.com', 'nater0214.test']
 CSRF_TRUSTED_ORIGINS = ['http://nater0214.test', 'https://nater0214.com']
@@ -76,7 +76,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'nater_website.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
