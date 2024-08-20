@@ -1,0 +1,63 @@
+{% load static %}
+<!-- Written by Nater0214 -->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {% include "head.html" with no_sidebar=1 %}
+        <link rel="stylesheet" href="{% static "root/school-stuff/nc-colonial-marketing/style.css" %}">
+    </head>
+    <body>
+        {% include "bars.html" with no_sidebar=1 %}
+        <div id="content">
+            <h1 class="centerText" style="font-size: 36pt">Make the Move!</h1>
+            <h2 class="centerText" style="font-size: 24pt">North Carolina is Waiting!</h2>
+            <hr>
+            <div class="infoSection">
+                <img src="{% static "root/school-stuff/nc-colonial-marketing/colony-map.png" %}" style="max-width: 20%">
+                <div style="text-align: right; margin-left: 10px;">
+                    <h3>Where are we?</h3>
+                    <p>The beautiful colony of North Carolina is one of the Southern Colonies located directly south of Virginia.</p>
+                </div>
+            </div>
+            <div class="infoSection">
+                <div style="text-align: left; margin-right: 10px;">
+                    <h3>What does our land look like?</h3>
+                    <p>Our colony has three main geographic regions. These are the Coastal region in the east, the Piedmont region in the midde, and the Appalacian region in the far west.</p>
+                </div>
+                <img src="{% static "root/school-stuff/nc-colonial-marketing/regions-map.jpg" %}" style="max-width: 60%">
+            </div>
+            <div class="infoSection">
+                <img src="{% static "root/school-stuff/nc-colonial-marketing/pipe-lovers.jpg" %}" style="max-width: 30%">
+                <div style="text-align: right; margin-left: 10px;">
+                    <h3>Our Epic Economy!</h3>
+                    <p>North Carolina is proud to export rich tobacco and soft cotton from our colony. There is plenty of area for settlers to start a farm and use laborers to earn a pretty penny.</p>
+                    <p>In addition to these two crops, the local Indians were kind and introduced us to many new delicious crops like corn, sweet potatoes, beans, squash, pumpkins, and peanuts!</p>
+                    <img src="{% static "root/school-stuff/nc-colonial-marketing/crops.jpg" %}" style="max-width: 60%">
+                </div>
+            </div>
+            <div class="infoSection">
+                <div style="text-align: left; margin-right: 10px;">
+                    <h3>Have a voice!</h3>
+                    <p>We pride ourself in allowing our citizens to have a voice in what happens in our colony. That is exactly why we have our representatives elected by popular vote<sup><a href="#footnote-1">[1]</a></sup>!</p>
+                    <p>Our House of Burgesses was established just for this purpose. It ensures that everyone is represented.</p>
+                </div>
+                <img src="{% static "root/school-stuff/nc-colonial-marketing/some-political-thing.png" %}" style="max-width: 30%">
+            </div>
+            <div class="infoSection">
+                <img src="{% static "root/school-stuff/nc-colonial-marketing/indians.jpg" %}" style="max-width: 40%">
+                <div style="text-align: right; margin-left: 10px">
+                    <h3>Relations with Locals!</h3>
+                    <p>We have established a relation with the local peoples of North Carolina. As stated previously, they were kind enough to intricude us to many new crops.</p>
+                    <p>we believe that us colonists and the native Indians can live in harmony in North Carolina.</p>
+                </div>
+            </div>
+            <div class="infoSection">
+                <h3>Footnotes</h3>
+                <ol>
+                    <li id="footnote-1">Voters must be over the age of 18, white, and male</li>
+                </ol>
+            </div>
+        </div>
+    </body>
+</html>

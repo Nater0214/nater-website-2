@@ -1,0 +1,9 @@
+/* Written by Nater0214 */
+
+.infoSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 10px auto;
+}
