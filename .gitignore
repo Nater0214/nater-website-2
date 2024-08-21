@@ -3,7 +3,6 @@
 .vscode
 db.sqlite3
 docker-compose.yml
-Dockerfile
 Dockerfile.nginx
 nginx-conf.conf
 static/admin
