@@ -10,4 +10,4 @@ RUN pip3 install -r /tmp/requirements.txt
 COPY . .
 
 # Command
-CMD ["./manage.py", "migrate", "&&", "gunicorn", "-c", "config/gunicorn/main.py"]
+CMD ./entrypoint.sh
