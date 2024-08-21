@@ -9,7 +9,6 @@ pipeline {
         REGISTRY_URL = "https://docker.nater0214.com"
     }
     stages {
-        def
         stage("Build") {
             steps {
                 echo "Building image with tag ${env.IMAGE_NAME}:${env.IMAGE_TAG}"
