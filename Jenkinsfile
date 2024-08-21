@@ -9,15 +9,6 @@ pipeline {
         REGISTRY_URL = "https://docker.nater0214.com"
     }
     stages {
-        stage("Initialize") {
-            steps {
-                echo "Initailizing build environment"
-                script {
-                    def dockerHome = tool "TheDocker"
-                    env.PATH = "${dockerHome}/bin:${env.PATH}"
-                }
-            }
-        }
         stage("Build") {
             steps {
                 echo "Building image with tag ${env.IMAGE_NAME}:${env.IMAGE_TAG}"
